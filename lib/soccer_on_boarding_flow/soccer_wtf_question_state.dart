@@ -11,13 +11,10 @@ class SoccerWTFQuestionState extends FlowState {
   SoccerWTFQuestionState(SoccerOnBoardingManager manager) : super(flowKey: key, manager: manager);
 
   @override
-  Widget onBuildFlowScreen(BuildContext context) {
+  Widget build(BuildContext context) {
     final team = manager.state[SoccerTeamQuestionState.key];
     final city = manager.state[SoccerCityQuestionState.key];
 
     return SoccerWTFQuestionScreen(onBack: manager.back, team: team, city: city);
   }
-
-  @override
-  FlowState? next() => null;
 }

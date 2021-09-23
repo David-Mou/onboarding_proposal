@@ -36,7 +36,7 @@ abstract class FlowManager<STATE> {
 
   void next(dynamic value) {
     state[_currentFlowState.flowKey] = value;
-    final nextState = _currentFlowState.next();
+    final nextState = _currentFlowState.resolveNextState();
     if (nextState != null) _push(nextState);
   }
 

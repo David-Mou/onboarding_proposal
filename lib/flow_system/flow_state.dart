@@ -8,13 +8,13 @@ abstract class FlowState {
 
   FlowState({required this.flowKey, required this.manager});
 
-  FlowState? next();
-
-  Widget onBuildFlowScreen(BuildContext context);
-
   Widget buildFlowScreen() {
-    return Builder(key: ValueKey(flowKey), builder: (context) => onBuildFlowScreen(context));
+    return Builder(key: ValueKey(flowKey), builder: (context) => build(context));
   }
+
+  FlowState? resolveNextState() => null;
+
+  Widget build(BuildContext context);
 
   void dispose() {}
 }

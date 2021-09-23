@@ -10,12 +10,12 @@ class SoccerTeamQuestionState extends FlowState {
   SoccerTeamQuestionState(SoccerOnBoardingManager manager) : super(flowKey: key, manager: manager);
 
   @override
-  Widget onBuildFlowScreen(BuildContext context) {
+  Widget build(BuildContext context) {
     return SoccerTeamQuestionScreen(onSelected: (team) => manager.next(team));
   }
 
   @override
-  FlowState? next() {
+  FlowState? resolveNextState() {
     return SoccerCityQuestionState(manager as SoccerOnBoardingManager);
   }
 }
