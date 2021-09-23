@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'on_boarding.dart';
+import 'package:onboarding_proposal/screens/on_boarding.dart';
 
 void main() {
   runApp(const OnBoardingApp());
