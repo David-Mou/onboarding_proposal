@@ -15,7 +15,7 @@ class SoccerTeamQuestionState extends FlowState {
   }
 
   @override
-  FlowState? resolveNextState() {
+  Future<FlowState?> resolveNextState() async {
     return SoccerCityQuestionState(manager as SoccerOnBoardingManager);
   }
 }

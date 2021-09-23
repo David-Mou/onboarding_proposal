@@ -34,9 +34,9 @@ abstract class FlowManager<STATE> {
     _listener?.call(detach());
   }
 
-  void next(dynamic value) {
+  Future<void> next(dynamic value) async {
     state[_currentFlowState.flowKey] = value;
-    final nextState = _currentFlowState.resolveNextState();
+    final nextState = await _currentFlowState.resolveNextState();
     if (nextState != null) _push(nextState);
   }
 
@@ -46,8 +46,8 @@ abstract class FlowManager<STATE> {
     _listener = newListener;
   }
 
-  void finish() {
-    onFinish();
+  Future<void> finish() async {
+    await onFinish();
     dispose();
   }
 
@@ -61,5 +61,5 @@ abstract class FlowManager<STATE> {
     _flowStates.clear();
   }
 
-  void onFinish();
+  Future<void> onFinish();
 }

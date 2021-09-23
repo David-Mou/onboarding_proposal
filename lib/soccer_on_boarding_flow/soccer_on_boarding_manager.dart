@@ -8,7 +8,7 @@ class SoccerOnBoardingManager extends FlowManager {
   SoccerOnBoardingManager();
 
   @override
-  void onFinish() {
+  Future<void> onFinish() async {
     print(state);
   }
 }

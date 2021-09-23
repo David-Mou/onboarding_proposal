@@ -17,7 +17,7 @@ class SoccerCityQuestionState extends FlowState {
   }
 
   @override
-  FlowState? resolveNextState() {
+  Future<FlowState?> resolveNextState() async {
     final team = manager.state[SoccerTeamQuestionState.key];
     final city = manager.state[key];
 

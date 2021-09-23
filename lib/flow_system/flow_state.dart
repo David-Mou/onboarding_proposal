@@ -12,7 +12,7 @@ abstract class FlowState {
     return Builder(key: ValueKey(flowKey), builder: (context) => build(context));
   }
 
-  FlowState? resolveNextState() => null;
+  Future<FlowState?> resolveNextState() async => null;
 
   Widget build(BuildContext context);
 
