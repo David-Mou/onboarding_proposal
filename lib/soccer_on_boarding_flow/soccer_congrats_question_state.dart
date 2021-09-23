@@ -16,7 +16,6 @@ class SoccerCongratsState extends FlowState {
     final team = manager.state[SoccerTeamQuestionState.key];
     final city = manager.state[SoccerCityQuestionState.key];
 
-    return SoccerCongratsQuestionScreen(onFinish: manager.finish, team: team, city: city);
+    return SoccerCongratsQuestionScreen(onFinish: manager.finish, onReset: manager.restart, team: team, city: city);
   }
-
 }

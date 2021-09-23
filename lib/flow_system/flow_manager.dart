@@ -11,12 +11,6 @@ abstract class FlowManager<STATE> {
 
   FlowState get currentFlowState => _currentFlowState;
 
-  void init(FlowState flowState) {
-    _flowStates.clear();
-    state.clear();
-    _push(flowState);
-  }
-
   FlowStateEvent attach() => FlowStateEvent(event: FlowStateEvents.push, state: _currentFlowState);
 
   FlowStateEvent detach() => FlowStateEvent(event: FlowStateEvents.pop, state: _currentFlowState);
@@ -32,6 +26,16 @@ abstract class FlowManager<STATE> {
     state.remove(removed.flowKey);
     _currentFlowState = _flowStates.last;
     _listener?.call(detach());
+  }
+
+  void init(FlowState flowState) {
+    _flowStates.clear();
+    state.clear();
+    _push(flowState);
+  }
+
+  void restart() {
+    init(_flowStates.first);
   }
 
   Future<void> next(dynamic value) async {

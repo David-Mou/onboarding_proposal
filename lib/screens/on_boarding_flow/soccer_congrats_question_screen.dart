@@ -4,10 +4,12 @@ class SoccerCongratsQuestionScreen extends StatelessWidget {
   final String team;
   final String city;
   final void Function() onFinish;
+  final void Function() onReset;
 
   const SoccerCongratsQuestionScreen({
     Key? key,
     required this.onFinish,
+    required this.onReset,
     required this.team,
     required this.city,
   }) : super(key: key);
@@ -22,6 +24,7 @@ class SoccerCongratsQuestionScreen extends StatelessWidget {
           children: [
             Text("Uah! Coming from $city, makes totally sense you support $team"),
             TextButton(child: const Text("Finish"), onPressed: onFinish),
+            TextButton(child: const Text("Reset"), onPressed: onReset),
           ],
         ),
       ),
