@@ -57,7 +57,8 @@ abstract class FlowManager<STATE> {
     _listener = newListener;
   }
 
-  Future<void> finish() async {
+  Future<void> finish([dynamic value]) async {
+    if(value != null) state[_currentFlowState.flowKey] = value;
     await onFinish();
     dispose();
   }
