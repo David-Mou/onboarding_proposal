@@ -24,6 +24,7 @@ abstract class FlowManager<STATE> {
   void _pop() {
     final removed = _flowStates.removeLast();
     state.remove(removed.flowKey);
+    removed.dispose();
     _currentFlowState = _flowStates.last;
     _listener?.call(detach());
   }
@@ -35,7 +36,13 @@ abstract class FlowManager<STATE> {
   }
 
   void restart() {
-    init(_flowStates.first);
+    final initState = _flowStates.removeAt(0);
+
+    for (var flowState in _flowStates) {
+      flowState.dispose();
+    }
+
+    init(initState);
   }
 
   Future<void> next(dynamic value) async {
