@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:onboarding_proposal/flow_system/flow_state.dart';
 import 'package:onboarding_proposal/screens/on_boarding_flow/soccer_wtf_question_screen.dart';
 import 'package:onboarding_proposal/soccer_on_boarding_flow/soccer_city_question_state.dart';
-import 'package:onboarding_proposal/soccer_on_boarding_flow/soccer_on_boarding_manager.dart';
 import 'package:onboarding_proposal/soccer_on_boarding_flow/soccer_team_question_state.dart';
+import 'package:onboarding_proposal/soccer_on_boarding_flow/soccer_user_on_boarding_manager.dart';
 
 class SoccerWTFQuestionState extends FlowState {
   static const String key = "wtf";
 
-  SoccerWTFQuestionState(SoccerOnBoardingManager manager) : super(flowKey: key, manager: manager);
+  SoccerWTFQuestionState(SoccerUserOnBoardingManager manager) : super(flowKey: key, manager: manager);
 
   @override
   Widget build(BuildContext context) {
